@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title id="page-title">Home</title>
+
+    <!-- BEGIN LivePerson Monitor. -->
+<script type="text/javascript">window.lpTag=window.lpTag||{},'undefined'==typeof window.lpTag._tagCount?(window.lpTag={wl:lpTag.wl||null,scp:lpTag.scp||null,site:'84851429'||'',section:lpTag.section||'',tagletSection:lpTag.tagletSection||null,autoStart:lpTag.autoStart!==!1,ovr:lpTag.ovr||{},_v:'1.10.0',_tagCount:1,protocol:'https:',events:{bind:function(t,e,i){lpTag.defer(function(){lpTag.events.bind(t,e,i)},0)},trigger:function(t,e,i){lpTag.defer(function(){lpTag.events.trigger(t,e,i)},1)}},defer:function(t,e){0===e?(this._defB=this._defB||[],this._defB.push(t)):1===e?(this._defT=this._defT||[],this._defT.push(t)):(this._defL=this._defL||[],this._defL.push(t))},load:function(t,e,i){var n=this;setTimeout(function(){n._load(t,e,i)},0)},_load:function(t,e,i){var n=t;t||(n=this.protocol+'//'+(this.ovr&&this.ovr.domain?this.ovr.domain:'lptag.liveperson.net')+'/tag/tag.js?site='+this.site);var o=document.createElement('script');o.setAttribute('charset',e?e:'UTF-8'),i&&o.setAttribute('id',i),o.setAttribute('src',n),document.getElementsByTagName('head').item(0).appendChild(o)},init:function(){this._timing=this._timing||{},this._timing.start=(new Date).getTime();var t=this;window.attachEvent?window.attachEvent('onload',function(){t._domReady('domReady')}):(window.addEventListener('DOMContentLoaded',function(){t._domReady('contReady')},!1),window.addEventListener('load',function(){t._domReady('domReady')},!1)),'undefined'===typeof window._lptStop&&this.load()},start:function(){this.autoStart=!0},_domReady:function(t){this.isDom||(this.isDom=!0,this.events.trigger('LPT','DOM_READY',{t:t})),this._timing[t]=(new Date).getTime()},vars:lpTag.vars||[],dbs:lpTag.dbs||[],ctn:lpTag.ctn||[],sdes:lpTag.sdes||[],hooks:lpTag.hooks||[],identities:lpTag.identities||[],ev:lpTag.ev||[]},lpTag.init()):window.lpTag._tagCount+=1;</script>
+<!-- END LivePerson Monitor. -->
+
+    <style>
+        
+        body {
+            background-color: black; 
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: white; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .header {
+            background-color: white; 
+            color: black; 
+            position: fixed;
+            top: 0; 
+            left: 0; 
+            right: 0; 
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .header-logo {
+            color: black; 
+            font-weight: bold;
+            font-size: 24px;
+        }
+
+        .header-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .header-links li {
+            margin-right: 20px;
+        }
+
+        .header-links li:last-child {
+            margin-right: 0;
+        }
+
+        .header-links a {
+            color: black; 
+            text-decoration: none;
+        }
+
+        .item-container {
+            display: flex;
+            flex-wrap: wrap; 
+            justify-content: space-around; 
+        }
+
+        .item {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+            max-width: 200px;
+            text-align: center; 
+            background-color: white; 
+            color: black; 
+        }
+
+        .fixed-description {
+            background-color: #f2f2f2;
+            padding: 10px;
+            font-style: italic;
+        }
+
+        .add-to-cart-btn {
+            display: block;
+            width: 100%;
+            padding: 5px;
+            background-color: black; 
+            color: white; 
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .cart-details {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            color: white;
+            text-align: right; 
+        }
+
+        #cart-count {
+            color: white; 
+            padding: 5px;
+        }
+
+        #total-price {
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-logo">LP Brand Store</div>
+        <ul class="header-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </header>
+
+    <div class="item-container">
+        <div class="item">
+            <div class="fixed-description">
+                <p>Item 1</p>
+                <p>Price: $10.00</p>
+            </div>
+            <button class="add-to-cart-btn" onclick="addToCart(1, 10)">
+                Add to Cart
+            </button>
+        </div>
+
+        <div class="item">
+            <div class="fixed-description">
+                <p>Item 2</p>
+                <p>Price: $15.00</p>
+            </div>
+            <button class="add-to-cart-btn" onclick="addToCart(2, 15)">
+                Add to Cart
+            </button>
+        </div>
+
+        <div class="item">
+            <div class="fixed-description">
+                <p>Item 3</p>
+                <p>Price: $12.50</p>
+            </div>
+            <button class="add-to-cart-btn" onclick="addToCart(3, 12.5)">
+                Add to Cart
+            </button>
+        </div>
+
+        <div class="item">
+            <div class="fixed-description">
+                <p>Item 4</p>
+                <p>Price: $8.75</p>
+            </div>
+            <button class="add-to-cart-btn" onclick="addToCart(4, 8.75)">
+                Add to Cart
+            </button>
+        </div>
+    </div>
+
+    <div class="cart-details">
+        <span id="cart-count">Cart Items: 0</span><br />
+        <span id="total-price">Total Price: $0.00</span>
+    </div>
+
+    <script>
+
+        var cartCount = 0;
+  
+        var totalPrice = 0;
+  
+   
+  
+        const pageTitleElement = document.getElementById("page-title").innerText;
+  
+        const totalCartValueElement = document.getElementById("total-cart-value");
+  
+   
+  
+        function addToCart(itemId, itemPrice) {
+  
+          cartCount += 1;
+  
+          totalPrice += itemPrice;
+  
+          updateCartCount();
+  
+          updateTotalPrice();
+  
+          console.log(totalPrice);
+  
+   
+  
+          window.lpTag = window.lpTag || {};
+  
+          lpTag.sdes = lpTag.sdes || [];
+  
+          lpTag.sdes.push({
+  
+            type: "cart", //MANDATORY
+  
+            total: totalPrice,
+  
+            currency: "USD", //CURRENCY CODE
+  
+            numItems: cartCount, //NUMBER OF ITEMS IN CART
+  
+          });
+  
+        }
+  
+   
+  
+        function updateCartCount() {
+  
+          const cartCountElement = document.getElementById("cart-count");
+  
+          cartCountElement.textContent = "Cart Items: " + cartCount.toString();
+  
+        }
+  
+   
+  
+        function updateTotalPrice() {
+  
+          const totalPriceElement = document.getElementById("total-price");
+  
+          totalPriceElement.textContent =
+  
+            "Total Price: " + "$" + totalPrice.toFixed(2);
+  
+        }
+  
+   
+  
+        lpTag.identities = [];
+  
+        lpTag.identities.push(identityfn);
+  
+   
+  
+        function identityfn(callback) { 
+          callback({
+            "sub": "Mohammed Jaffer Islam - 910779",
+            "iss": "https://jwt.io/",
+            "aud": "acc:qa57221676",
+            "exp": 1992025992,
+            "iat": 1682030954,
+            "acr": "loa1"
+            });
+  
+        }
+
+        var id_token =
+            "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJNb2hhbW1lZCBKYWZmZXIgSXNsYW0gLSA5MTA3NzkiLCJpc3MiOiJodHRwczovL2p3dC5pby8iLCJhdWQiOiJhY2M6cWE1NzIyMTY3NiIsImV4cCI6MTk5MjAyNTk5MiwiaWF0IjoxNjgyMDMwOTU0LCJhY3IiOiJsb2ExIn0.L1B2r_KuK7AN9XmvxyXUuNTZQS1JQXGQH169jxkkRWGLpp1GwgEInkxyaueN7FAXNtNugPrfbAqyW_F2qoXGxSGirTTnk_p8g9r9PDteP-JA7eq4qxEgbtrBnSTVFA8kmY7E9GPahHnabRDt-89w6Oi3rmzs1k5CP8HkKhwadTKEAgZ8t6X2vsr1-mWi9txTjwNMjTOo9EVxgr7z31q0Kxn-XTf3zxRalQWHNS8lA00f3v7CafXl6TeXCj4Ck69LakJAu5uGW5PcVvjq4jDsqw5Siw2A1UnM3xfQ8I6iz1_IADjPWVHVcFf0IPMuZsRZ1A5rFII79VUP3ujdsv3_BA";
+    
+        function lpGetAuthenticationToken(callback) {
+            console.log("LP asked for id_token or auth code in Code Flow");
+            callback(id_token);
+            callback("", "error reason");
+          }
+  
+      </script>
+</body>
+</html>
