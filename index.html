@@ -27,13 +27,15 @@
         .header {
             background-color: white; 
             color: black; 
+            position: fixed;
+            top: 0; 
+            left: 0; 
+            right: 0; 
             padding: 10px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             width: 100%;
-            position: fixed; 
-            top: 0; 
         }
 
         .header-logo {
@@ -62,31 +64,54 @@
             text-decoration: none;
         }
 
-        .quote-container {
-            text-align: center;
-            margin-top: 80px; 
+        .item-container {
+            display: flex;
+            flex-wrap: wrap; 
+            justify-content: space-around; 
         }
 
-        .quote {
-            font-size: 24px;
-            font-style: italic;
-            max-width: 80%;
-            line-height: 1.5;
-        }
-
-        .shop-now-button {
+        .item {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+            max-width: 200px;
+            text-align: center; 
             background-color: white; 
             color: black; 
-            padding: 20px 40px; 
-            font-size: 24px; 
-            text-decoration: none;
-            border: none;
-            cursor: pointer;
-            border-radius: 10px; 
         }
 
-        .shop-now-button:hover {
-            background-color: #f2f2f2; 
+        .fixed-description {
+            background-color: #f2f2f2;
+            padding: 10px;
+            font-style: italic;
+        }
+
+        .add-to-cart-btn {
+            display: block;
+            width: 100%;
+            padding: 5px;
+            background-color: black; 
+            color: white; 
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .cart-details {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            color: white;
+            text-align: right; 
+        }
+
+        #cart-count {
+            color: white; 
+            padding: 5px;
+        }
+
+        #total-price {
+            font-size: 18px;
         }
     </style>
 </head>
@@ -100,9 +125,51 @@
         </ul>
     </header>
 
-    <div class="quote-container">
-        <p class="quote">"Experience the Best in Every Product. Discover Our Brand Today."</p>
-        <a href="login.html" class="shop-now-button">Shop Now</a>
+    <div class="item-container">
+        <div class="item">
+            <div class="fixed-description">
+                <p>Item 1</p>
+                <p>Price: $10.00</p>
+            </div>
+            <button class="add-to-cart-btn" onclick="addToCart(1, 10)">
+                Add to Cart
+            </button>
+        </div>
+
+        <div class="item">
+            <div class="fixed-description">
+                <p>Item 2</p>
+                <p>Price: $15.00</p>
+            </div>
+            <button class="add-to-cart-btn" onclick="addToCart(2, 15)">
+                Add to Cart
+            </button>
+        </div>
+
+        <div class="item">
+            <div class="fixed-description">
+                <p>Item 3</p>
+                <p>Price: $12.50</p>
+            </div>
+            <button class="add-to-cart-btn" onclick="addToCart(3, 12.5)">
+                Add to Cart
+            </button>
+        </div>
+
+        <div class="item">
+            <div class="fixed-description">
+                <p>Item 4</p>
+                <p>Price: $8.75</p>
+            </div>
+            <button class="add-to-cart-btn" onclick="addToCart(4, 8.75)">
+                Add to Cart
+            </button>
+        </div>
+    </div>
+
+    <div class="cart-details">
+        <span id="cart-count">Cart Items: 0</span><br />
+        <span id="total-price">Total Price: $0.00</span>
     </div>
 
     <script>
@@ -210,6 +277,5 @@
           }
   
       </script>
-
 </body>
 </html>
