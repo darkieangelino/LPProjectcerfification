@@ -105,7 +105,82 @@
         <a href="login.html" class="shop-now-button">Shop Now</a>
     </div>
 
+    <script>
+
+        var cartCount = 0;
   
+        var totalPrice = 0;
+  
+   
+  
+        const pageTitleElement = document.getElementById("page-title").innerText;
+  
+        const totalCartValueElement = document.getElementById("total-cart-value");
+  
+   
+  
+        function addToCart(itemId, itemPrice) {
+  
+          cartCount += 1;
+  
+          totalPrice += itemPrice;
+  
+          updateCartCount();
+  
+          updateTotalPrice();
+  
+          console.log(totalPrice);
+  
+   
+  
+          window.lpTag = window.lpTag || {};
+  
+          lpTag.sdes = lpTag.sdes || [];
+  
+          lpTag.sdes.push({
+  
+            type: "cart", //MANDATORY
+  
+            total: totalPrice,
+  
+            currency: "USD", //CURRENCY CODE
+  
+            numItems: cartCount, //NUMBER OF ITEMS IN CART
+
+            "products": [{
+                "product": {
+                    "name": "Page Title: " + document.title, // Correctly access the page title
+                    "category": ""
+                },
+            }]
+  
+          });
+  
+        }
+  
+   
+  
+        function updateCartCount() {
+  
+          const cartCountElement = document.getElementById("cart-count");
+  
+          cartCountElement.textContent = "Cart Items: " + cartCount.toString();
+  
+        }
+  
+   
+  
+        function updateTotalPrice() {
+  
+          const totalPriceElement = document.getElementById("total-price");
+  
+          totalPriceElement.textContent =
+  
+            "Total Price: " + "$" + totalPrice.toFixed(2);
+  
+        }
+         
+      </script>
 
 </body>
 </html>
