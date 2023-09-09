@@ -19,6 +19,84 @@
             min-height: 100vh;
         }
 
+        .header {
+            background-color: white; 
+            color: black; 
+            position: fixed;
+            top: 0; 
+            left: 0; 
+            right: 0; 
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .header-logo {
+            color: black; 
+            font-weight: bold;
+            font-size: 24px;
+        }
+
+        .header-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .header-links li {
+            margin-right: 20px;
+        }
+
+        .header-links li:last-child {
+            margin-right: 0;
+        }
+
+        .header-links a {
+            color: black; 
+            text-decoration: none;
+        }.header {
+            background-color: white; 
+            color: black; 
+            position: fixed;
+            top: 0; 
+            left: 0; 
+            right: 0; 
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .header-logo {
+            color: black; 
+            font-weight: bold;
+            font-size: 24px;
+        }
+
+        .header-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .header-links li {
+            margin-right: 20px;
+        }
+
+        .header-links li:last-child {
+            margin-right: 0;
+        }
+
+        .header-links a {
+            color: black; 
+            text-decoration: none;
+        }
+
         .login-container {
             background-color: white;
             padding: 20px;
@@ -50,6 +128,12 @@
     </style>
 </head>
 <body>
+    <header class="header">
+        <div class="header-logo">LP Brand Store</div>
+        <ul class="header-links">
+            <li><a href="index.html">Home</a></li>
+        </ul>
+    </header>
     <div class="login-container">
         <h2>Login</h2>
         <form action="process-login.php" method="POST" onsubmit="return redirectToProducts()">
