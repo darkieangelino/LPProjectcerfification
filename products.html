@@ -214,11 +214,16 @@
   
             numItems: cartCount, //NUMBER OF ITEMS IN CART
 
-            type: "page",
-            info: {
-            title: pageTitleElement,
+            title: pageTitleElement // 
   
           });
+
+          lpTag.sdes.push({
+            type: "page",
+            info: {
+                title: pageTitleElement, // Include the page title here
+            },
+        });
   
         }
   
