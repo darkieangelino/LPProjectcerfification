@@ -207,13 +207,11 @@
   
    
   
-           window.lpTag = window.lpTag || {};
+       window.lpTag = window.lpTag || {};
         lpTag.sdes = lpTag.sdes || [];
 
-        // Use a function to get the page title after the DOM is ready
-        function getPageTitle() {
-            return document.title || "Unknown Page"; // Default to "Unknown Page" if title is null
-        }
+        // Get the page title and set a default if it's null or empty
+        var pageTitle = document.title.trim() || "Unknown Page";
 
         lpTag.sdes.push({
             type: "cart",
@@ -222,7 +220,7 @@
             numItems: cartCount,
             "products": [{
                 "product": {
-                    "name": "Page Title: " + getPageTitle(),
+                    "name": "Page Title: " + pageTitle,
                     "category": ""
                 },
             }]
