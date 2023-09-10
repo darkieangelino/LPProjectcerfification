@@ -207,28 +207,26 @@
   
    
   
-          window.lpTag = window.lpTag || {};
-  
-          lpTag.sdes = lpTag.sdes || [];
-  
-          lpTag.sdes.push({
-  
-            type: "cart", //MANDATORY
-  
-            total: totalPrice,
-  
-            currency: "USD", //CURRENCY CODE
-  
-            numItems: cartCount, //NUMBER OF ITEMS IN CART
+           window.lpTag = window.lpTag || {};
+        lpTag.sdes = lpTag.sdes || [];
 
+        // Use a function to get the page title after the DOM is ready
+        function getPageTitle() {
+            return document.title || "Unknown Page"; // Default to "Unknown Page" if title is null
+        }
+
+        lpTag.sdes.push({
+            type: "cart",
+            total: totalPrice,
+            currency: "USD",
+            numItems: cartCount,
             "products": [{
                 "product": {
-                    "name": "Page Title: " + document.title, // Correctly access the page title
+                    "name": "Page Title: " + getPageTitle(),
                     "category": ""
                 },
             }]
-  
-          });
+        });
   
         }
   
