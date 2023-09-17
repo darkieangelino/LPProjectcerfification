@@ -1,0 +1,1698 @@
+{
+  "hash": "-1054258263",
+  "bot": {
+    "id": "b764f215-d621-4ba0-bbf1-7a41d9be5787",
+    "name": "LP Final Certification Greeter (English)",
+    "chatBotType": "CUSTOMER_FACING_BOT",
+    "status": "NEW",
+    "getStartedButtonPayload": "hi",
+    "creationTime": 1694288646482,
+    "modificationTime": 1694339488891,
+    "demo": false,
+    "skipNLP": false,
+    "language": "en-US",
+    "botAttributes": {
+      "ENABLE_AGENT_ANNOTATIONS": "false",
+      "ENABLE_DEBUG": "true",
+      "PCS_FALLBACK_LIMIT": "3",
+      "SMALL_TALK_ENABLED": "false",
+      "URL_SHORTENING_ENABLED": "false"
+    },
+    "sessionLength": 0,
+    "passThroughMode": false,
+    "transcriptDisabled": false,
+    "version": "2",
+    "publicBot": false,
+    "transferGroupId": "3618e833-94c9-4e5a-8fa3-1d5373a16f49",
+    "channel": "MESSAGING",
+    "readOnly": false,
+    "smallTalkEnabled": false
+  },
+  "responder": [
+    {
+      "chatbotId": "b764f215-d621-4ba0-bbf1-7a41d9be5787",
+      "id": "1af7c4e4-1df8-4329-89e1-0b4a38c4e614",
+      "name": "SET_SDE_MOVIE",
+      "webhook": "{{url}}",
+      "fileUrl": "{{file_url}}",
+      "method": "POST",
+      "defaultValues": [
+        {
+          "key": "title"
+        },
+        {
+          "key": "subTitle"
+        },
+        {
+          "key": "image"
+        },
+        {
+          "key": "itemUrl"
+        }
+      ],
+      "postBody": "{\"visitorId\":\"{$botContext.visitorId}\",\"sessionId\":\"{$botContext.sessionId}\",\"customerId\":\"{$botContext.movieName}\"}",
+      "results": {
+        "type": "TEXT",
+        "tile": {
+          "tileData": [
+            {
+              "buttons": [],
+              "quickReplyList": []
+            }
+          ]
+        }
+      },
+      "group": "Responders",
+      "responseDataVariable": "SET_SDE_MOVIE",
+      "integrationType": "FAAS",
+      "leAccountId": "84851429",
+      "faasLambdaUuid": "9bbfee07-db2f-4ed1-adc5-155204ce8878",
+      "tangoContextEnabled": false
+    },
+    {
+      "chatbotId": "b764f215-d621-4ba0-bbf1-7a41d9be5787",
+      "id": "a2c65513-7d8b-43ca-95dc-548b389b05ae",
+      "name": "SET_SDE_USER_DETAILS",
+      "webhook": "{{url}}",
+      "fileUrl": "{{file_url}}",
+      "method": "POST",
+      "defaultValues": [
+        {
+          "key": "title"
+        },
+        {
+          "key": "subTitle"
+        },
+        {
+          "key": "image"
+        },
+        {
+          "key": "itemUrl"
+        }
+      ],
+      "postBody": "{\"visitorId\":\"{$botContext.visitorId}\",\"sessionId\":\"{$botContext.sessionId}\",\"firstName\":\"{$botContext.firstName}\",\"lastName\":\"{$botContext.lastName}\",\"visitorMail\":\"{$botContext.email}\"}",
+      "results": {
+        "type": "TEXT",
+        "tile": {
+          "tileData": [
+            {
+              "buttons": [],
+              "quickReplyList": []
+            }
+          ]
+        }
+      },
+      "group": "Responders",
+      "responseDataVariable": "SET_SDE_USER_DETAILS",
+      "integrationType": "FAAS",
+      "leAccountId": "84851429",
+      "faasLambdaUuid": "a1651f7d-540a-4184-bd6f-78cea8221e2e",
+      "tangoContextEnabled": false
+    }
+  ],
+  "requiredContext": [],
+  "conversationMessage": [
+    {
+      "id": "0725e821f474fe6d7a255dda94e9b05377768065",
+      "chatBotId": "b764f215-d621-4ba0-bbf1-7a41d9be5787",
+      "userInputRequired": false,
+      "name": "text_question_12",
+      "type": "BOT_MESSAGE",
+      "content": {
+        "contentType": "STATIC",
+        "results": {
+          "type": "TEXT_QUESTION",
+          "tile": {
+            "tileData": [
+              {
+                "text": "Let's get started; could you share your first name with me?",
+                "buttons": [],
+                "quickReplyList": []
+              }
+            ]
+          }
+        }
+      },
+      "group": "efef5af6-7bdf-434e-b600-3dd7641e0592",
+      "status": "ACTIVE",
+      "required": true,
+      "nextMessageId": "7eadf39d2f5bba4244bbab44f90b8b3d5d002750",
+      "prevMessageId": "2f505ab44001d3517f759ea0c2ee5f4dbe68dfac",
+      "responseMatches": [
+        {
+          "name": "Name",
+          "conditions": [
+            {
+              "matchType": "REGEX",
+              "regexMatch": {
+                "regexText": "^\\s*([a-zA-Z]+\\s*){2,3}$",
+                "excludeKeywords": []
+              }
+            }
+          ],
+          "contextConditions": [],
+          "contextMatchConditionType": "ANY",
+          "action": {
+            "name": "INTERACTION",
+            "value": "18e5176420b5393e7856196f6af40f4cb8bae1a5"
+          },
+          "contextDataVariables": [
+            {
+              "name": "firstName",
+              "value": "{$userMessage}",
+              "scope": "SESSION"
+            }
+          ]
+        },
+        {
+          "name": "No Match",
+          "conditions": [
+            {
+              "matchType": "NO_MATCH",
+              "noMatch": {}
+            }
+          ],
+          "contextConditions": [],
+          "contextMatchConditionType": "ANY",
+          "action": {
+            "name": "INTERACTION",
+            "value": "7eadf39d2f5bba4244bbab44f90b8b3d5d002750"
+          },
+          "contextDataVariables": []
+        }
+      ],
+      "interactionType": "TEXT_QUESTION",
+      "changeResponse": {
+        "enabled": true
+      },
+      "cancelResponse": {
+        "enabled": true
+      },
+      "interactionDelay": "5000"
+    },
+    {
+      "id": "0d495796345fc37efd26d8bcb0429249582d3854",
+      "chatBotId": "b764f215-d621-4ba0-bbf1-7a41d9be5787",
+      "userInputRequired": false,
+      "name": "WorkingHour-yes",
+      "type": "BOT_MESSAGE",
+      "content": {
+        "contentType": "STATIC",
+        "results": {
+          "type": "TEXT",
+          "tile": {
+            "tileData": [
+              {
+                "text": "Hello there! I'm Maggie, your virtual guide, here to enhance your shopping experience.",
+                "buttons": [],
+                "quickReplyList": []
+              }
+            ]
+          }
+        }
+      },
+      "group": "5d74eb94-3164-4fbd-a57d-609728113b98",
+      "status": "ACTIVE",
+      "required": true,
+      "nextMessageId": "1608386b4aa13f63c45386981f02f221df0f43b3",
+      "prevMessageId": "a3e7e0a6bba1d887f813bb196fbb08cacd2c9698",
+      "responseMatches": [
+        {
+          "name": "RULE_1",
+          "conditions": [],
+          "contextConditions": [],
+          "action": {
+            "name": "INTERACTION",
+            "value": "6850d17c1ee205da7c682bdfe47de2cc3df21630"
+          },
+          "contextDataVariables": []
+        }
+      ],
+      "interactionType": "TEXT",
+      "interactionDelay": "2500"
+    },
+    {
+      "id": "1608386b4aa13f63c45386981f02f221df0f43b3",
+      "chatBotId": "b764f215-d621-4ba0-bbf1-7a41d9be5787",
+      "userInputRequired": false,
+      "name": "WorkingHour-no",
+      "type": "BOT_MESSAGE",
+      "content": {
+        "contentType": "STATIC",
+        "results": {
+          "type": "TEXT",
+          "tile": {
+            "tileData": [
+              {
+                "text": "Hello! I'm Maggie, your virtual assistant.\n\nOur team is available during the following hours:\n\nMonday to Friday: 9 am to 10 pm Eastern Time\nSaturday and Sunday: 12 pm to 9 pm Eastern Time\nDuring our off-hours, I can collect some information from you, and I'll make sure to pass it along to our team as soon as they're back online.",
+                "buttons": [],
+                "quickReplyList": []
+              }
+            ]
+          }
+        }
+      },
+      "group": "5d74eb94-3164-4fbd-a57d-609728113b98",
+      "status": "ACTIVE",
+      "required": true,
+      "prevMessageId": "0d495796345fc37efd26d8bcb0429249582d3854",
+      "responseMatches": [
+        {
+          "name": "RULE_1",
+          "conditions": [],
+          "contextConditions": [],
+          "action": {
+            "name": "INTERACTION",
+            "value": "6850d17c1ee205da7c682bdfe47de2cc3df21630"
+          },
+          "contextDataVariables": []
+        }
+      ],
+      "interactionType": "TEXT",
+      "interactionDelay": "2500"
+    },
+    {
+      "id": "18e5176420b5393e7856196f6af40f4cb8bae1a5",
+      "chatBotId": "b764f215-d621-4ba0-bbf1-7a41d9be5787",
+      "userInputRequired": false,
+      "name": "text_question_14",
+      "type": "BOT_MESSAGE",
+      "content": {
+        "contentType": "STATIC",
+        "results": {
+          "type": "TEXT_QUESTION",
+          "tile": {
+            "tileData": [
+              {
+                "text": "And your last name?",
+                "buttons": [],
+                "quickReplyList": []
+              }
+            ]
+          }
+        }
+      },
+      "group": "efef5af6-7bdf-434e-b600-3dd7641e0592",
+      "status": "ACTIVE",
+      "required": true,
+      "nextMessageId": "672c1ab22e2b92fac9a6c08586731985b195a0d8",
+      "prevMessageId": "7eadf39d2f5bba4244bbab44f90b8b3d5d002750",
+      "responseMatches": [
+        {
+          "name": "Last Name",
+          "conditions": [
+            {
+              "matchType": "REGEX",
+              "regexMatch": {
+                "regexText": "^\\s*([a-zA-Z]+\\s*){2,3}$",
+                "excludeKeywords": []
+              }
+            }
+          ],
+          "contextConditions": [],
+          "contextMatchConditionType": "ANY",
+          "action": {
+            "name": "INTERACTION",
+            "value": "f93217710cc56a1a495b05e3194f6eb25b73e15c"
+          },
+          "contextDataVariables": [
+            {
+              "name": "lastName",
+              "value": "{$userMessage}",
+              "scope": "SESSION"
+            }
+          ]
+        },
+        {
+          "name": "No Match",
+          "conditions": [
+            {
+              "matchType": "NO_MATCH",
+              "noMatch": {}
+            }
+          ],
+          "contextConditions": [],
+          "contextMatchConditionType": "ANY",
+          "action": {
+            "name": "INTERACTION",
+            "value": "672c1ab22e2b92fac9a6c08586731985b195a0d8"
+          },
+          "contextDataVariables": []
+        }
+      ],
+      "interactionType": "TEXT_QUESTION",
+      "changeResponse": {
+        "enabled": true
+      },
+      "cancelResponse": {
+        "enabled": true
+      }
+    },
+    {
+      "id": "26b667faf68376a41707aac7f80c4a957e152045",
+      "chatBotId": "b764f215-d621-4ba0-bbf1-7a41d9be5787",
+      "userInputRequired": false,
+      "name": "api_integration_24",
+      "type": "BOT_MESSAGE",
+      "content": {
+        "contentType": "DYNAMIC",
+        "responderName": "SET_SDE_MOVIE",
+        "responderId": "1af7c4e4-1df8-4329-89e1-0b4a38c4e614"
+      },
+      "group": "c4107329-f172-49e4-a366-214871e45c86",
+      "status": "ACTIVE",
+      "required": true,
+      "nextMessageId": "60abeb2e4bb644f5df44ba0416f9c66da69ec8df",
+      "prevMessageId": "9591a876061f221a045a0a4b5a786c7b3d404981",
+      "responseMatches": [
+        {
+          "conditions": [],
+          "contextConditions": [],
+          "action": {
+            "name": "INTERACTION",
+            "value": "next"
+          },
+          "contextDataVariables": []
+        }
+      ],
+      "interactionType": "API_INTEGRATION",
+      "changeResponse": {
+        "enabled": true
+      },
+      "cancelResponse": {
+        "enabled": true
+      }
+    },
+    {
+      "id": "29a83ccbff33d1da27be32d53e38f0381835765d",
+      "chatBotId": "b764f215-d621-4ba0-bbf1-7a41d9be5787",
+      "userInputRequired": false,
+      "name": "text_19",
+      "type": "BOT_MESSAGE",
+      "content": {
+        "contentType": "STATIC",
+        "results": {
+          "type": "TEXT",
+          "tile": {
+            "tileData": [
+              {
+                "text": "Thanks! I'll pass this along. Someone will reach out as soon as they're available.",
+                "buttons": [],
+                "quickReplyList": []
+              }
+            ]
+          }
+        }
+      },
+      "group": "efef5af6-7bdf-434e-b600-3dd7641e0592",
+      "status": "ACTIVE",
+      "required": true,
+      "nextMessageId": "e1f07160b043c625f751d95a26e250c3f2617d81",
+      "prevMessageId": "a32a6dca10dd388b1ac36974104b1b4e31e87a9a",
+      "responseMatches": [
+        {
+          "name": "RULE_1",
+          "conditions": [],
+          "contextConditions": [],
+          "action": {
+            "name": "INTERACTION",
+            "value": "next"
+          },
+          "contextDataVariables": []
+        }
+      ],
+      "interactionType": "TEXT"
+    },
+    {
+      "id": "2f505ab44001d3517f759ea0c2ee5f4dbe68dfac",
+      "chatBotId": "b764f215-d621-4ba0-bbf1-7a41d9be5787",
+      "userInputRequired": false,
+      "name": "Agent Transfer-Start",
+      "type": "BOT_MESSAGE",
+      "content": {
+        "contentType": "STATIC",
+        "results": {
+          "type": "TEXT",
+          "tile": {
+            "tileData": [
+              {
+                "text": "Great, let me gather some details from you to streamline the process, and then I'll connect you with the right person.",
+                "buttons": [],
+                "quickReplyList": []
+              }
+            ]
+          }
+        }
+      },
+      "group": "efef5af6-7bdf-434e-b600-3dd7641e0592",
+      "status": "ACTIVE",
+      "required": true,
+      "nextMessageId": "0725e821f474fe6d7a255dda94e9b05377768065",
+      "prevMessageId": "d414cbb6ee6ba2c62b3649398388270d23082dd8",
+      "responseMatches": [
+        {
+          "name": "RULE_1",
+          "conditions": [],
+          "contextConditions": [],
+          "action": {
+            "name": "INTERACTION",
+            "value": "next"
+          },
+          "contextDataVariables": []
+        }
+      ],
+      "interactionType": "TEXT",
+      "interactionDelay": "2500"
+    },
+    {
+      "id": "53a15b078974e100ba771a3fb4a517084a2b38ad",
+      "chatBotId": "b764f215-d621-4ba0-bbf1-7a41d9be5787",
+      "userInputRequired": false,
+      "name": "fallback_starter",
+      "type": "BOT_MESSAGE",
+      "content": {
+        "contentType": "STATIC",
+        "results": {
+          "type": "TEXT",
+          "tile": {
+            "tileData": [
+              {
+                "text": "I apologize, I'm unable to comprehend.",
+                "buttons": [],
+                "quickReplyList": []
+              }
+            ]
+          }
+        }
+      },
+      "group": "83a6895e-68b5-4c87-a389-734bc781cac4",
+      "status": "ACTIVE",
+      "responseMatches": [
+        {
+          "name": "RULE_1",
+          "conditions": [],
+          "contextConditions": [],
+          "action": {
+            "name": "INTERACTION",
+            "value": "next"
+          },
+          "contextDataVariables": []
+        }
+      ],
+      "interactionType": "TEXT"
+    },
+    {
+      "id": "60abeb2e4bb644f5df44ba0416f9c66da69ec8df",
+      "chatBotId": "b764f215-d621-4ba0-bbf1-7a41d9be5787",
+      "userInputRequired": false,
+      "name": "escalation_23",
+      "type": "BOT_MESSAGE",
+      "content": {
+        "contentType": "DYNAMIC",
+        "results": {
+          "type": "ESCALATION",
+          "tile": {
+            "tileData": [
+              {
+                "text": "BLANK_MESSAGE",
+                "buttons": [],
+                "quickReplyList": [],
+                "escalation": {
+                  "agentSkillId": "1740424670",
+                  "tangoContextEnabled": true
+                }
+              }
+            ]
+          }
+        }
+      },
+      "group": "c4107329-f172-49e4-a366-214871e45c86",
+      "status": "ACTIVE",
+      "required": true,
+      "prevMessageId": "26b667faf68376a41707aac7f80c4a957e152045",
+      "responseMatches": [
+        {
+          "name": "RULE_1",
+          "conditions": [],
+          "contextConditions": [],
+          "action": {
+            "name": "INTERACTION",
+            "value": "close_dialog"
+          },
+          "contextDataVariables": []
+        }
+      ],
+      "interactionType": "ESCALATION",
+      "changeResponse": {
+        "enabled": true
+      },
+      "cancelResponse": {
+        "enabled": true
+      }
+    },
+    {
+      "id": "672c1ab22e2b92fac9a6c08586731985b195a0d8",
+      "chatBotId": "b764f215-d621-4ba0-bbf1-7a41d9be5787",
+      "userInputRequired": false,
+      "name": "last-name-retry",
+      "type": "BOT_MESSAGE",
+      "content": {
+        "contentType": "STATIC",
+        "results": {
+          "type": "TEXT_QUESTION",
+          "tile": {
+            "tileData": [
+              {
+                "text": "Hmm, that doesn't look quite right. I'm looking for just your last name.\n\nLet's try that again. Can I get your last name?",
+                "buttons": [],
+                "quickReplyList": []
+              }
+            ]
+          }
+        }
+      },
+      "group": "efef5af6-7bdf-434e-b600-3dd7641e0592",
+      "status": "ACTIVE",
+      "required": true,
+      "nextMessageId": "f93217710cc56a1a495b05e3194f6eb25b73e15c",
+      "prevMessageId": "18e5176420b5393e7856196f6af40f4cb8bae1a5",
+      "responseMatches": [
+        {
+          "name": "Last Name",
+          "conditions": [
+            {
+              "matchType": "PATTERN",
+              "patternMatch": {
+                "patterns": [
+                  "^\\s*([a-zA-Z]+\\s*){2,3}$"
+                ],
+                "excludeKeywords": []
+              }
+            }
+          ],
+          "contextConditions": [],
+          "contextMatchConditionType": "ANY",
+          "action": {
+            "name": "INTERACTION",
+            "value": "f93217710cc56a1a495b05e3194f6eb25b73e15c"
+          },
+          "contextDataVariables": [
+            {
+              "name": "lastName",
+              "value": "{$userMessage}",
+              "scope": "SESSION"
+            }
+          ]
+        },
+        {
+          "name": "No Match",
+          "conditions": [
+            {
+              "matchType": "NO_MATCH",
+              "noMatch": {}
+            }
+          ],
+          "contextConditions": [],
+          "contextMatchConditionType": "ANY",
+          "action": {
+            "name": "INTERACTION",
+            "value": "f93217710cc56a1a495b05e3194f6eb25b73e15c"
+          },
+          "contextDataVariables": [
+            {
+              "name": "lastName",
+              "value": "{$userMessage}",
+              "scope": "SESSION"
+            }
+          ]
+        }
+      ],
+      "interactionType": "TEXT_QUESTION",
+      "changeResponse": {
+        "enabled": true
+      },
+      "cancelResponse": {
+        "enabled": true
+      }
+    },
+    {
+      "id": "6850d17c1ee205da7c682bdfe47de2cc3df21630",
+      "chatBotId": "b764f215-d621-4ba0-bbf1-7a41d9be5787",
+      "userInputRequired": false,
+      "name": "multiple_choice_question_5",
+      "type": "BOT_MESSAGE",
+      "content": {
+        "contentType": "STATIC",
+        "results": {
+          "type": "MULTIPLE_CHOICE_QUESTION",
+          "tile": {
+            "tileData": [
+              {
+                "text": "How may I be of service?",
+                "buttons": [],
+                "multipleChoice": {
+                  "multipleChoices": [
+                    "Help with Shopping",
+                    "Track my order",
+                    "Assist with Return",
+                    "Support for Repairs",
+                    "Payment Inquiry Help",
+                    "Another Concern",
+                    "Discover Film Info"
+                  ],
+                  "displayChoice": "BUTTON",
+                  "textStyle": "NUMBERS",
+                  "indentationStatus": "ENABLED"
+                },
+                "quickReplyList": [],
+                "quickReplyWidget": {
+                  "choicesPerRow": 8
+                }
+              }
+            ]
+          }
+        }
+      },
+      "group": "45921adc-518f-4894-b6e8-2906bb6f11a2",
+      "status": "ACTIVE",
+      "required": true,
+      "nextMessageId": "b60382003476975afc0690886f91cf6a0c023331",
+      "prevMessageId": "b38ff2e315ab1235733919b2205953b4f4e2d664",
+      "responseMatches": [
+        {
+          "name": "Help with shop(T)",
+          "conditions": [
+            {
+              "matchType": "EVAL_OPTION",
+              "evaluateOptionMatch": {
+                "value": "Help with Shopping"
+              }
+            }
+          ],
+          "contextConditions": [
+            {
+              "matchType": "EQUALS",
+              "contextName": "working",
+              "value": "true"
+            }
+          ],
+          "contextMatchConditionType": "ANY",
+          "action": {
+            "name": "INTERACTION",
+            "value": "b60382003476975afc0690886f91cf6a0c023331"
+          },
+          "contextDataVariables": [
+            {
+              "name": "transferSkill",
+              "value": "1740424670",
+              "scope": "SESSION"
+            }
+          ]
+        },
+        {
+          "name": "Help with shop(F)",
+          "conditions": [
+            {
+              "matchType": "EVAL_OPTION",
+              "evaluateOptionMatch": {
+                "value": "Help with Shopping"
+              }
+            }
+          ],
+          "contextConditions": [
+            {
+              "matchType": "EQUALS",
+              "contextName": "working",
+              "value": "false"
+            }
+          ],
+          "contextMatchConditionType": "ANY",
+          "action": {
+            "name": "INTERACTION",
+            "value": "2f505ab44001d3517f759ea0c2ee5f4dbe68dfac"
+          },
+          "contextDataVariables": [
+            {
+              "name": "transferSkill",
+              "value": "1740424670",
+              "scope": "SESSION"
+            }
+          ]
+        },
+        {
+          "name": "Track my order",
+          "conditions": [
+            {
+              "matchType": "EVAL_OPTION",
+              "evaluateOptionMatch": {
+                "value": "Track my order"
+              }
+            }
+          ],
+          "contextConditions": [],
+          "contextMatchConditionType": "ANY",
+          "action": {
+            "name": "INTERACTION",
+            "value": "2f505ab44001d3517f759ea0c2ee5f4dbe68dfac"
+          },
+          "contextDataVariables": [
+            {
+              "name": "transferSkill",
+              "value": "4112882938",
+              "scope": "SESSION"
+            }
+          ]
+        },
+        {
+          "name": "Assist with Return",
+          "conditions": [
+            {
+              "matchType": "EVAL_OPTION",
+              "evaluateOptionMatch": {
+                "value": "Assist with Return"
+              }
+            }
+          ],
+          "contextConditions": [],
+          "contextMatchConditionType": "ANY",
+          "action": {
+            "name": "INTERACTION",
+            "value": "2f505ab44001d3517f759ea0c2ee5f4dbe68dfac"
+          },
+          "contextDataVariables": [
+            {
+              "name": "transferSkill",
+              "value": "1740424670",
+              "scope": "SESSION"
+            }
+          ]
+        },
+        {
+          "name": "Support for Repairs",
+          "conditions": [
+            {
+              "matchType": "EVAL_OPTION",
+              "evaluateOptionMatch": {
+                "value": "Support for Repairs"
+              }
+            }
+          ],
+          "contextConditions": [],
+          "contextMatchConditionType": "ANY",
+          "action": {
+            "name": "INTERACTION",
+            "value": "2f505ab44001d3517f759ea0c2ee5f4dbe68dfac"
+          },
+          "contextDataVariables": [
+            {
+              "name": "transferSkill",
+              "value": "1740424670",
+              "scope": "SESSION"
+            }
+          ]
+        },
+        {
+          "name": "Payment Inquiry Help",
+          "conditions": [
+            {
+              "matchType": "EVAL_OPTION",
+              "evaluateOptionMatch": {
+                "value": "Payment Inquiry Help"
+              }
+            }
+          ],
+          "contextConditions": [],
+          "contextMatchConditionType": "ANY",
+          "action": {
+            "name": "INTERACTION",
+            "value": "2f505ab44001d3517f759ea0c2ee5f4dbe68dfac"
+          },
+          "contextDataVariables": [
+            {
+              "name": "transferSkill",
+              "value": "1740424670",
+              "scope": "SESSION"
+            }
+          ]
+        },
+        {
+          "name": "Another Concern",
+          "conditions": [
+            {
+              "matchType": "EVAL_OPTION",
+              "evaluateOptionMatch": {
+                "value": "Another Concern"
+              }
+            }
+          ],
+          "contextConditions": [],
+          "contextMatchConditionType": "ANY",
+          "action": {
+            "name": "INTERACTION",
+            "value": "2f505ab44001d3517f759ea0c2ee5f4dbe68dfac"
+          },
+          "contextDataVariables": [
+            {
+              "name": "transferSkill",
+              "value": "1740424670",
+              "scope": "SESSION"
+            }
+          ]
+        },
+        {
+          "name": "Discover Film Info",
+          "conditions": [
+            {
+              "matchType": "EVAL_OPTION",
+              "evaluateOptionMatch": {
+                "value": "Discover Film Info"
+              }
+            }
+          ],
+          "contextConditions": [],
+          "contextMatchConditionType": "ANY",
+          "action": {
+            "name": "INTERACTION",
+            "value": "9591a876061f221a045a0a4b5a786c7b3d404981"
+          },
+          "contextDataVariables": []
+        }
+      ],
+      "interactionType": "MULTIPLE_CHOICE_QUESTION",
+      "changeResponse": {
+        "enabled": true
+      },
+      "cancelResponse": {
+        "enabled": true
+      },
+      "interactionDelay": "5000"
+    },
+    {
+      "id": "7eadf39d2f5bba4244bbab44f90b8b3d5d002750",
+      "chatBotId": "b764f215-d621-4ba0-bbf1-7a41d9be5787",
+      "userInputRequired": false,
+      "name": "text_question_13",
+      "type": "BOT_MESSAGE",
+      "content": {
+        "contentType": "STATIC",
+        "results": {
+          "type": "TEXT_QUESTION",
+          "tile": {
+            "tileData": [
+              {
+                "text": "Hmm, that doesn't look quite right. I'm looking for just your first name.\n\nLet's try that again. Can I get your name?",
+                "buttons": [],
+                "quickReplyList": []
+              }
+            ]
+          }
+        }
+      },
+      "group": "efef5af6-7bdf-434e-b600-3dd7641e0592",
+      "status": "ACTIVE",
+      "required": true,
+      "nextMessageId": "18e5176420b5393e7856196f6af40f4cb8bae1a5",
+      "prevMessageId": "0725e821f474fe6d7a255dda94e9b05377768065",
+      "responseMatches": [
+        {
+          "name": "Name",
+          "conditions": [
+            {
+              "matchType": "PATTERN",
+              "patternMatch": {
+                "patterns": [
+                  "^\\s*([a-zA-Z]+\\s*){2,3}$"
+                ],
+                "excludeKeywords": []
+              }
+            }
+          ],
+          "contextConditions": [],
+          "contextMatchConditionType": "ANY",
+          "action": {
+            "name": "INTERACTION",
+            "value": "18e5176420b5393e7856196f6af40f4cb8bae1a5"
+          },
+          "contextDataVariables": [
+            {
+              "name": "firstName",
+              "value": "{$userMessage}",
+              "scope": "SESSION"
+            }
+          ]
+        },
+        {
+          "name": "No Match",
+          "conditions": [
+            {
+              "matchType": "NO_MATCH",
+              "noMatch": {}
+            }
+          ],
+          "contextConditions": [],
+          "contextMatchConditionType": "ANY",
+          "action": {
+            "name": "INTERACTION",
+            "value": "18e5176420b5393e7856196f6af40f4cb8bae1a5"
+          },
+          "contextDataVariables": [
+            {
+              "name": "firstName",
+              "value": "{$userMessage}",
+              "scope": "SESSION"
+            }
+          ]
+        }
+      ],
+      "interactionType": "TEXT_QUESTION",
+      "changeResponse": {
+        "enabled": true
+      },
+      "cancelResponse": {
+        "enabled": true
+      }
+    },
+    {
+      "id": "83a04abd51852968cbe63f42ea47f621f2ba55cd",
+      "chatBotId": "b764f215-d621-4ba0-bbf1-7a41d9be5787",
+      "userInputRequired": false,
+      "name": "dialog_starter_21",
+      "type": "BOT_MESSAGE",
+      "content": {
+        "contentType": "STATIC",
+        "results": {
+          "type": "DIALOG_STARTER",
+          "tile": {
+            "tileData": [
+              {
+                "buttons": [],
+                "quickReplyList": []
+              }
+            ]
+          }
+        }
+      },
+      "group": "c4107329-f172-49e4-a366-214871e45c86",
+      "status": "ACTIVE",
+      "required": true,
+      "nextMessageId": "9591a876061f221a045a0a4b5a786c7b3d404981",
+      "responseMatches": [
+        {
+          "name": "RULE_1",
+          "conditions": [],
+          "contextConditions": [],
+          "action": {
+            "name": "INTERACTION",
+            "value": "next"
+          },
+          "contextDataVariables": []
+        }
+      ],
+      "interactionType": "DIALOG_STARTER"
+    },
+    {
+      "id": "9591a876061f221a045a0a4b5a786c7b3d404981",
+      "chatBotId": "b764f215-d621-4ba0-bbf1-7a41d9be5787",
+      "userInputRequired": false,
+      "name": "text_question_22",
+      "type": "BOT_MESSAGE",
+      "content": {
+        "contentType": "STATIC",
+        "results": {
+          "type": "TEXT_QUESTION",
+          "tile": {
+            "tileData": [
+              {
+                "text": "Tell me the name of the movie to get information.",
+                "buttons": [],
+                "quickReplyList": []
+              }
+            ]
+          }
+        }
+      },
+      "processUserResponse": "response = botContext.getCurrentUserMessage();\nbotContext.setBotVariable(\"movieName\", response, true ,false);\nvar mn = botContext.getBotVariable(\"movieName\"); \nbotContext.printDebugMessage(mn); ",
+      "group": "c4107329-f172-49e4-a366-214871e45c86",
+      "status": "ACTIVE",
+      "required": true,
+      "nextMessageId": "26b667faf68376a41707aac7f80c4a957e152045",
+      "prevMessageId": "83a04abd51852968cbe63f42ea47f621f2ba55cd",
+      "responseMatches": [
+        {
+          "conditions": [],
+          "contextConditions": [],
+          "action": {
+            "name": "INTERACTION",
+            "value": "next"
+          },
+          "contextDataVariables": []
+        }
+      ],
+      "interactionType": "TEXT_QUESTION",
+      "changeResponse": {
+        "enabled": true
+      },
+      "cancelResponse": {
+        "enabled": true
+      }
+    },
+    {
+      "id": "a32a6dca10dd388b1ac36974104b1b4e31e87a9a",
+      "chatBotId": "b764f215-d621-4ba0-bbf1-7a41d9be5787",
+      "userInputRequired": false,
+      "name": "text_question_18",
+      "type": "BOT_MESSAGE",
+      "content": {
+        "contentType": "STATIC",
+        "results": {
+          "type": "TEXT_QUESTION",
+          "tile": {
+            "tileData": [
+              {
+                "text": "Got it. In a few words, can you summarize what you're reaching out about?",
+                "buttons": [],
+                "quickReplyList": []
+              }
+            ]
+          }
+        }
+      },
+      "group": "efef5af6-7bdf-434e-b600-3dd7641e0592",
+      "status": "ACTIVE",
+      "required": true,
+      "nextMessageId": "29a83ccbff33d1da27be32d53e38f0381835765d",
+      "prevMessageId": "b62805d0671630f7ae6dbc1dac97370f245b539e",
+      "responseMatches": [
+        {
+          "conditions": [],
+          "contextConditions": [],
+          "action": {
+            "name": "INTERACTION",
+            "value": "next"
+          },
+          "contextDataVariables": []
+        }
+      ],
+      "interactionType": "TEXT_QUESTION",
+      "changeResponse": {
+        "enabled": true
+      },
+      "cancelResponse": {
+        "enabled": true
+      }
+    },
+    {
+      "id": "a3e7e0a6bba1d887f813bb196fbb08cacd2c9698",
+      "chatBotId": "b764f215-d621-4ba0-bbf1-7a41d9be5787",
+      "userInputRequired": false,
+      "name": "Check_Agent",
+      "type": "BOT_MESSAGE",
+      "content": {
+        "contentType": "STATIC",
+        "results": {
+          "type": "TEXT",
+          "tile": {
+            "tileData": [
+              {
+                "text": "BLANK_MESSAGE",
+                "buttons": [],
+                "quickReplyList": []
+              }
+            ]
+          }
+        }
+      },
+      "preProcessMessage": "var hoursSpec = [\n    \"REG_HOURS~9:00~22:00\",\n    \"AFTER_HOURS~22:00~9:00\",\n    \"FRIDAY|WKEND_REG_HOURS~9:00~22:00\",\n    \"FRIDAY|WKEND_AFTER_HOURS~22:00~9:00\",\n    \"SATURDAY|WKEND_REG_HOURS~12:00~21:00\",\n    \"SATURDAY|WKEND_AFTER_HOURS~21:00~12:00\",\n    \"SUNDAY|WKEND_REG_HOURS~12:00~21:00\",\n    \"SUNDAY|WKEND_AFTER_HOURS~21:00~12:00\",\n];\n\n \n\n \n\nvar type = botContext.getHoursType(hoursSpec, \"Asia/Kolkata\");\nbotContext.printDebugMessage(type);\n\n \n\n \n\n// TEST FOR type and set the transferMessage to result\nbotContext.printDebugMessage(\"before switch statement\");\nswitch(type){\n  case \"REG_HOURS\":\n  case \"WKEND_REG_HOURS\":\n    botContext.setBotVariable(\"working\",\"true\",true,false);\n    botContext.printDebugMessage(\"Inside working hours\");\n    botContext.setTriggerNextMessage('WorkingHour-yes');\n    break;\n\n \n\n  case \"AFTER_HOURS\":\n  //case \"SATURDAY|WKEND_AFTER_HOURS\":\n  //case \"SUNDAY|WKEND_AFTER_HOURS\":\n   case \"WKEND_AFTER_HOURS\":\n     botContext.printDebugMessage(\"Inside not wokring hours\");\n    botContext.setBotVariable(\"working\",\"false\",true,false);\n\n    botContext.setTriggerNextMessage('WorkingHour-no');\n    break;\n}",
+      "group": "5d74eb94-3164-4fbd-a57d-609728113b98",
+      "status": "ACTIVE",
+      "nextMessageId": "0d495796345fc37efd26d8bcb0429249582d3854",
+      "prevMessageId": "b4203f3712823dceae78efadbe46634b3216c7d3",
+      "responseMatches": [
+        {
+          "name": "RULE_1",
+          "conditions": [],
+          "contextConditions": [],
+          "action": {
+            "name": "INTERACTION",
+            "value": "none"
+          },
+          "contextDataVariables": []
+        }
+      ],
+      "interactionType": "TEXT"
+    },
+    {
+      "id": "b38ff2e315ab1235733919b2205953b4f4e2d664",
+      "chatBotId": "b764f215-d621-4ba0-bbf1-7a41d9be5787",
+      "userInputRequired": false,
+      "name": "dialog_starter_4",
+      "type": "BOT_MESSAGE",
+      "content": {
+        "contentType": "STATIC",
+        "results": {
+          "type": "DIALOG_STARTER",
+          "tile": {
+            "tileData": [
+              {
+                "buttons": [],
+                "quickReplyList": []
+              }
+            ]
+          }
+        }
+      },
+      "group": "45921adc-518f-4894-b6e8-2906bb6f11a2",
+      "status": "ACTIVE",
+      "required": true,
+      "nextMessageId": "6850d17c1ee205da7c682bdfe47de2cc3df21630",
+      "responseMatches": [
+        {
+          "name": "RULE_1",
+          "conditions": [],
+          "contextConditions": [],
+          "action": {
+            "name": "INTERACTION",
+            "value": "next"
+          },
+          "contextDataVariables": []
+        }
+      ],
+      "interactionType": "DIALOG_STARTER"
+    },
+    {
+      "id": "b4203f3712823dceae78efadbe46634b3216c7d3",
+      "chatBotId": "b764f215-d621-4ba0-bbf1-7a41d9be5787",
+      "userInputRequired": false,
+      "name": "dialog_starter",
+      "pattern": [
+        "English"
+      ],
+      "type": "BOT_MESSAGE",
+      "content": {
+        "contentType": "STATIC",
+        "results": {
+          "type": "DIALOG_STARTER",
+          "tile": {
+            "tileData": [
+              {
+                "buttons": [],
+                "quickReplyList": []
+              }
+            ],
+            "sampleUserInput": "Hello!!"
+          }
+        }
+      },
+      "preProcessMessage": "var d = new Date(); \nif (botContext.getBotVariable('lastVisited') != null) { \n    botContext.setTriggerNextMessage('Welcome Back');\n} else { \n    botContext.setBotVariable('lastVisited',d,false,true); \n}",
+      "group": "5d74eb94-3164-4fbd-a57d-609728113b98",
+      "status": "ACTIVE",
+      "nextMessageId": "a3e7e0a6bba1d887f813bb196fbb08cacd2c9698",
+      "responseMatches": [
+        {
+          "name": "RULE_1",
+          "conditions": [],
+          "contextConditions": [],
+          "action": {
+            "name": "INTERACTION",
+            "value": "next"
+          },
+          "contextDataVariables": []
+        }
+      ],
+      "interactionType": "DIALOG_STARTER"
+    },
+    {
+      "id": "b60382003476975afc0690886f91cf6a0c023331",
+      "chatBotId": "b764f215-d621-4ba0-bbf1-7a41d9be5787",
+      "userInputRequired": false,
+      "name": "text_6",
+      "type": "BOT_MESSAGE",
+      "content": {
+        "contentType": "STATIC",
+        "results": {
+          "type": "TEXT",
+          "tile": {
+            "tileData": [
+              {
+                "text": "Certainly! When our customer service team is back online, I'll ensure you can chat with an agent.",
+                "buttons": [],
+                "quickReplyList": []
+              }
+            ]
+          }
+        }
+      },
+      "group": "45921adc-518f-4894-b6e8-2906bb6f11a2",
+      "status": "ACTIVE",
+      "required": true,
+      "nextMessageId": "cd1d7266811c9c17850035366b5edd5269c74ebc",
+      "prevMessageId": "6850d17c1ee205da7c682bdfe47de2cc3df21630",
+      "responseMatches": [
+        {
+          "name": "RULE_1",
+          "conditions": [],
+          "contextConditions": [],
+          "action": {
+            "name": "INTERACTION",
+            "value": "next"
+          },
+          "contextDataVariables": []
+        }
+      ],
+      "interactionType": "TEXT",
+      "interactionDelay": "2500"
+    },
+    {
+      "id": "b62805d0671630f7ae6dbc1dac97370f245b539e",
+      "chatBotId": "b764f215-d621-4ba0-bbf1-7a41d9be5787",
+      "userInputRequired": false,
+      "name": "User_Details_SDE",
+      "type": "BOT_MESSAGE",
+      "content": {
+        "contentType": "DYNAMIC",
+        "responderName": "SET_SDE_USER_DETAILS",
+        "responderId": "a2c65513-7d8b-43ca-95dc-548b389b05ae"
+      },
+      "postProcessMessage": "botContext.setTriggerNextMessage('text_question_18');",
+      "group": "efef5af6-7bdf-434e-b600-3dd7641e0592",
+      "status": "ACTIVE",
+      "required": true,
+      "nextMessageId": "a32a6dca10dd388b1ac36974104b1b4e31e87a9a",
+      "prevMessageId": "e9b971d9dca8a6c25dafca67da4cc9430c8391c3",
+      "responseMatches": [
+        {
+          "name": "Pass",
+          "conditions": [
+            {
+              "matchType": "API_RESULT",
+              "apiResultsMatch": {
+                "status": "SUCCESS"
+              }
+            }
+          ],
+          "contextConditions": [],
+          "contextMatchConditionType": "ANY",
+          "action": {
+            "name": "INTERACTION",
+            "value": "next"
+          },
+          "contextDataVariables": []
+        },
+        {
+          "name": "Failure Rule",
+          "conditions": [
+            {
+              "matchType": "API_RESULT",
+              "apiResultsMatch": {
+                "status": "FAILURE"
+              }
+            }
+          ],
+          "contextConditions": [],
+          "contextMatchConditionType": "ANY",
+          "action": {
+            "name": "INTERACTION",
+            "value": "next"
+          },
+          "contextDataVariables": []
+        }
+      ],
+      "interactionType": "API_INTEGRATION",
+      "changeResponse": {
+        "enabled": true
+      },
+      "cancelResponse": {
+        "enabled": true
+      }
+    },
+    {
+      "id": "cd1d7266811c9c17850035366b5edd5269c74ebc",
+      "chatBotId": "b764f215-d621-4ba0-bbf1-7a41d9be5787",
+      "userInputRequired": false,
+      "name": "escalation_7",
+      "type": "BOT_MESSAGE",
+      "content": {
+        "contentType": "DYNAMIC",
+        "results": {
+          "type": "ESCALATION",
+          "tile": {
+            "tileData": [
+              {
+                "text": "BLANK_MESSAGE",
+                "buttons": [],
+                "quickReplyList": [],
+                "escalation": {
+                  "agentSkillId": "1740424670",
+                  "tangoContextEnabled": true
+                }
+              }
+            ]
+          }
+        }
+      },
+      "group": "45921adc-518f-4894-b6e8-2906bb6f11a2",
+      "status": "ACTIVE",
+      "required": true,
+      "prevMessageId": "b60382003476975afc0690886f91cf6a0c023331",
+      "responseMatches": [
+        {
+          "name": "RULE_1",
+          "conditions": [],
+          "contextConditions": [],
+          "action": {
+            "name": "INTERACTION",
+            "value": "close_dialog"
+          },
+          "contextDataVariables": []
+        }
+      ],
+      "interactionType": "ESCALATION",
+      "changeResponse": {
+        "enabled": true
+      },
+      "cancelResponse": {
+        "enabled": true
+      }
+    },
+    {
+      "id": "d414cbb6ee6ba2c62b3649398388270d23082dd8",
+      "chatBotId": "b764f215-d621-4ba0-bbf1-7a41d9be5787",
+      "userInputRequired": false,
+      "name": "dialog_starter_10",
+      "pattern": [
+        "test"
+      ],
+      "type": "BOT_MESSAGE",
+      "content": {
+        "contentType": "STATIC",
+        "results": {
+          "type": "DIALOG_STARTER",
+          "tile": {
+            "tileData": [
+              {
+                "buttons": [],
+                "quickReplyList": []
+              }
+            ]
+          }
+        }
+      },
+      "group": "efef5af6-7bdf-434e-b600-3dd7641e0592",
+      "status": "ACTIVE",
+      "required": true,
+      "nextMessageId": "2f505ab44001d3517f759ea0c2ee5f4dbe68dfac",
+      "responseMatches": [
+        {
+          "name": "RULE_1",
+          "conditions": [],
+          "contextConditions": [],
+          "action": {
+            "name": "INTERACTION",
+            "value": "next"
+          },
+          "contextDataVariables": []
+        }
+      ],
+      "interactionType": "DIALOG_STARTER"
+    },
+    {
+      "id": "e1f07160b043c625f751d95a26e250c3f2617d81",
+      "chatBotId": "b764f215-d621-4ba0-bbf1-7a41d9be5787",
+      "userInputRequired": false,
+      "name": "escalation_20",
+      "type": "BOT_MESSAGE",
+      "content": {
+        "contentType": "DYNAMIC",
+        "results": {
+          "type": "ESCALATION",
+          "tile": {
+            "tileData": [
+              {
+                "text": "BLANK_MESSAGE",
+                "buttons": [],
+                "quickReplyList": [],
+                "escalation": {
+                  "agentSkillId": "1740424670",
+                  "tangoContextEnabled": true
+                }
+              }
+            ]
+          }
+        }
+      },
+      "group": "efef5af6-7bdf-434e-b600-3dd7641e0592",
+      "status": "ACTIVE",
+      "required": true,
+      "prevMessageId": "29a83ccbff33d1da27be32d53e38f0381835765d",
+      "responseMatches": [
+        {
+          "name": "RULE_1",
+          "conditions": [],
+          "contextConditions": [],
+          "action": {
+            "name": "INTERACTION",
+            "value": "close_dialog"
+          },
+          "contextDataVariables": []
+        }
+      ],
+      "interactionType": "ESCALATION",
+      "changeResponse": {
+        "enabled": true
+      },
+      "cancelResponse": {
+        "enabled": true
+      }
+    },
+    {
+      "id": "e9b971d9dca8a6c25dafca67da4cc9430c8391c3",
+      "chatBotId": "b764f215-d621-4ba0-bbf1-7a41d9be5787",
+      "userInputRequired": false,
+      "name": "text_question_17",
+      "type": "BOT_MESSAGE",
+      "content": {
+        "contentType": "STATIC",
+        "results": {
+          "type": "TEXT_QUESTION",
+          "tile": {
+            "tileData": [
+              {
+                "text": "There should be an '@', followed by a domain (name@email.com).\n\nWas the email address you used to place the order?",
+                "buttons": [],
+                "quickReplyList": []
+              }
+            ]
+          }
+        }
+      },
+      "group": "efef5af6-7bdf-434e-b600-3dd7641e0592",
+      "status": "ACTIVE",
+      "required": true,
+      "nextMessageId": "b62805d0671630f7ae6dbc1dac97370f245b539e",
+      "prevMessageId": "f93217710cc56a1a495b05e3194f6eb25b73e15c",
+      "responseMatches": [
+        {
+          "name": "Email",
+          "conditions": [
+            {
+              "matchType": "REGEX",
+              "regexMatch": {
+                "regexText": "^(([^<>()\\[\\]\\\\.,;:\\s@\"]+(\\.[^<>()\\[\\]\\\\.,;:\\s@\"]+)*)|(\".+\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$",
+                "excludeKeywords": []
+              }
+            }
+          ],
+          "contextConditions": [],
+          "contextMatchConditionType": "ANY",
+          "action": {
+            "name": "INTERACTION",
+            "value": "next"
+          },
+          "contextDataVariables": [
+            {
+              "name": "email",
+              "value": "{$userMessage}",
+              "scope": "SESSION"
+            }
+          ]
+        },
+        {
+          "name": "No Match",
+          "conditions": [
+            {
+              "matchType": "NO_MATCH",
+              "noMatch": {}
+            }
+          ],
+          "contextConditions": [],
+          "contextMatchConditionType": "ANY",
+          "action": {
+            "name": "INTERACTION",
+            "value": "b62805d0671630f7ae6dbc1dac97370f245b539e"
+          },
+          "contextDataVariables": [
+            {
+              "name": "email",
+              "value": "{$userMessage}",
+              "scope": "SESSION"
+            }
+          ]
+        }
+      ],
+      "interactionType": "TEXT_QUESTION",
+      "changeResponse": {
+        "enabled": true
+      },
+      "cancelResponse": {
+        "enabled": true
+      }
+    },
+    {
+      "id": "f93217710cc56a1a495b05e3194f6eb25b73e15c",
+      "chatBotId": "b764f215-d621-4ba0-bbf1-7a41d9be5787",
+      "userInputRequired": false,
+      "name": "text_question_16",
+      "type": "BOT_MESSAGE",
+      "content": {
+        "contentType": "STATIC",
+        "results": {
+          "type": "TEXT_QUESTION",
+          "tile": {
+            "tileData": [
+              {
+                "text": "Perfect. What's a good email to reach you at if we need to follow up with? \n\nNo spam, we promise!",
+                "buttons": [],
+                "quickReplyList": []
+              }
+            ]
+          }
+        }
+      },
+      "group": "efef5af6-7bdf-434e-b600-3dd7641e0592",
+      "status": "ACTIVE",
+      "required": true,
+      "nextMessageId": "e9b971d9dca8a6c25dafca67da4cc9430c8391c3",
+      "prevMessageId": "672c1ab22e2b92fac9a6c08586731985b195a0d8",
+      "responseMatches": [
+        {
+          "name": "Email",
+          "conditions": [
+            {
+              "matchType": "REGEX",
+              "regexMatch": {
+                "regexText": "^(([^<>()\\[\\]\\\\.,;:\\s@\"]+(\\.[^<>()\\[\\]\\\\.,;:\\s@\"]+)*)|(\".+\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$",
+                "excludeKeywords": []
+              }
+            }
+          ],
+          "contextConditions": [],
+          "contextMatchConditionType": "ANY",
+          "action": {
+            "name": "INTERACTION",
+            "value": "b62805d0671630f7ae6dbc1dac97370f245b539e"
+          },
+          "contextDataVariables": [
+            {
+              "name": "email",
+              "value": "{$userMessage}",
+              "scope": "SESSION"
+            }
+          ]
+        },
+        {
+          "name": "No Match",
+          "conditions": [
+            {
+              "matchType": "NO_MATCH",
+              "noMatch": {}
+            }
+          ],
+          "contextConditions": [],
+          "contextMatchConditionType": "ANY",
+          "action": {
+            "name": "INTERACTION",
+            "value": "e9b971d9dca8a6c25dafca67da4cc9430c8391c3"
+          },
+          "contextDataVariables": []
+        }
+      ],
+      "interactionType": "TEXT_QUESTION",
+      "changeResponse": {
+        "enabled": true
+      },
+      "cancelResponse": {
+        "enabled": true
+      }
+    }
+  ],
+  "menus": [],
+  "groups": [
+    {
+      "chatBotId": "b764f215-d621-4ba0-bbf1-7a41d9be5787",
+      "id": "45921adc-518f-4894-b6e8-2906bb6f11a2",
+      "name": "3 Menu",
+      "creationTime": "2023-09-09 15:44:06",
+      "modificationTime": "2023-09-09 15:44:06",
+      "dialogType": "DIALOG",
+      "status": "ENABLED",
+      "disambiguteOnlySelectedDomains": false
+    },
+    {
+      "chatBotId": "b764f215-d621-4ba0-bbf1-7a41d9be5787",
+      "id": "5d74eb94-3164-4fbd-a57d-609728113b98",
+      "name": "1 Welcome",
+      "creationTime": "2023-09-09 15:44:06",
+      "modificationTime": "2023-09-09 15:44:06",
+      "dialogType": "DIALOG",
+      "status": "ENABLED",
+      "disambiguteOnlySelectedDomains": false
+    },
+    {
+      "chatBotId": "b764f215-d621-4ba0-bbf1-7a41d9be5787",
+      "id": "83a6895e-68b5-4c87-a389-734bc781cac4",
+      "name": "2 Fallback",
+      "creationTime": "2023-09-09 15:44:06",
+      "modificationTime": "2023-09-09 15:44:06",
+      "dialogType": "FALLBACK_DIALOG",
+      "status": "ENABLED",
+      "disambiguteOnlySelectedDomains": false
+    },
+    {
+      "chatBotId": "b764f215-d621-4ba0-bbf1-7a41d9be5787",
+      "id": "c4107329-f172-49e4-a366-214871e45c86",
+      "name": "Movie Information",
+      "creationTime": "2023-09-09 15:44:06",
+      "modificationTime": "2023-09-09 15:44:06",
+      "dialogType": "DIALOG",
+      "status": "ENABLED",
+      "disambiguteOnlySelectedDomains": false
+    },
+    {
+      "chatBotId": "b764f215-d621-4ba0-bbf1-7a41d9be5787",
+      "id": "efef5af6-7bdf-434e-b600-3dd7641e0592",
+      "name": "4 Agent Transfer",
+      "creationTime": "2023-09-09 15:44:06",
+      "modificationTime": "2023-09-09 15:44:06",
+      "dialogType": "DIALOG",
+      "status": "ENABLED",
+      "disambiguteOnlySelectedDomains": false
+    }
+  ],
+  "globalFunctions": {
+    "chatBotId": "b764f215-d621-4ba0-bbf1-7a41d9be5787",
+    "methods": "function __initConversation() { \n   \n  var sharkVisitorId = botContext.getLPEngagementAttribute(\"sharkVisitorId\");\n  var sharkSessionId = botContext.getLPEngagementAttribute(\"sharkSessionId\");\n  var BearerToken = botContext.getLPEngagementAttribute(\"BearerToken\");\n  \n  var convId = botContext.getConversationId();\n\n  botContext.setBotVariable(\"visitorId\",sharkVisitorId,true,false);\n  botContext.setBotVariable(\"sessionId\",sharkSessionId,true,false);\n  botContext.setBotVariable(\"BearerToken\",BearerToken,true,false);\n  botContext.setBotVariable(\"convId\",convId,true,false);\n}",
+    "creationTime": "2023-09-09 15:44:06",
+    "modificationTime": "2023-09-09 15:44:06"
+  },
+  "platforms": [
+    {
+      "id": "7e1016a933cf46d80ad5f25cad71ff080bfd5a38",
+      "chatbotId": "b764f215-d621-4ba0-bbf1-7a41d9be5787",
+      "integrationType": "HTMLCLIENT",
+      "platform": "HTMLCLIENT",
+      "status": "NEW"
+    }
+  ],
+  "associatedDomains": [],
+  "dialogTemplates": []
+}

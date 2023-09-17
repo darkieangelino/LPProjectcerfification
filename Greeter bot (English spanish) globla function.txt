@@ -1,0 +1,13 @@
+function __initConversation() { 
+   
+  var sharkVisitorId = botContext.getLPEngagementAttribute("sharkVisitorId");
+  var sharkSessionId = botContext.getLPEngagementAttribute("sharkSessionId");
+  var BearerToken = botContext.getLPEngagementAttribute("BearerToken");
+  
+  var convId = botContext.getConversationId();
+
+  botContext.setBotVariable("visitorId",sharkVisitorId,true,false);
+  botContext.setBotVariable("sessionId",sharkSessionId,true,false);
+  botContext.setBotVariable("BearerToken",BearerToken,true,false);
+  botContext.setBotVariable("convId",convId,true,false);
+}

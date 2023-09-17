@@ -1,0 +1,21 @@
+function lambda(input, callback) {
+    // Set conversation data.
+    let conversation = input.payload;
+    // Some processing ...
+    // Result can be either an object or array.
+    // Hint: Make sure to only return each type once.
+    let result = [
+        {
+            type: "systemMessage", // Returns a system message into the conversation.
+            text: "Hace tiempo que no sabemos nada de ti. Para brindarle la mejor asistencia, ahora estamos transfiriendo su chat a un agente en vivo que podrá ayudarlo más. Espere un momento mientras lo conectamos."
+        },
+        {
+            type: "transfer", // Transfers the conversation to a new skill.
+            skillId: "1740424670"
+        },
+        {
+            type: "" // Closes the conversation.
+        }
+    ];
+    callback(null, result);
+}
